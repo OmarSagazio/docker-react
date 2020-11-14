@@ -1,0 +1,9 @@
+language: generic 
+services:
+  - docker
+
+before_install:
+  - docker build -t o/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true o/docker-react npm run test
